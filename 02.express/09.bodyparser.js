@@ -27,6 +27,7 @@ app.get('/login', function (req,res) {
 app.post('/login',(req,res) => {
     let uid = req.body.uid;
     let pwd = req.body.pwd;
+    console.log(req.body);
     console.log(uid,pwd)
     if(uid === 'park' && pwd === '1234')
         res.send(`<h1>login Success</h1>`)
