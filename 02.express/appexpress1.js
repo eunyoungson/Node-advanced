@@ -59,11 +59,11 @@ app.post('/create', (req,res) => {
       });
 });
 
-app.get('/delete', (req,res) => { 
+app.get('/delete/id/:id', (req,res) => { 
   fs.readdir('data', function(error, filelist) {
     let title = req.params.id ; 
     let list = template.listGen(filelist);
-    let content = template.deleteForm(title);
+    let content = template.deleteForm(title); //참고
     let control = template.buttonGen();
     let html = view.index('글 삭제', list, content, control);
     res.send(html);
@@ -81,7 +81,7 @@ app.post('/delete', (req,res) => {
   });
 });
 
-app.get('/update', (req,res) => { 
+app.get('/update/id/:id', (req,res) => { 
   fs.readdir('data', function(error, filelist) {
     let list = template.listGen(filelist);
     let title = req.params.id;
