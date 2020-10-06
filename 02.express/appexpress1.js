@@ -42,7 +42,6 @@ app.get('/create', (req,res) => {
     let html = view.index('글 생성', list, content, control);
     res.send(html);
   });
-
 });
 
 app.post('/create', (req,res) => { 
@@ -52,10 +51,10 @@ app.post('/create', (req,res) => {
     //console.log(param.subject, param.description);
     let filepath = 'data/' + subject + '.txt';
     fs.writeFile(filepath, description, error => {
-        let encoded = encodeURI(`/id/${subject}`);
+        /* let encoded = encodeURI(`/id/${subject}`);
         console.log(encoded);
-        res.status(302).redirect(encoded);
-       
+        res.status(302).redirect(encoded); */
+       res.redirect(`/id/${subject}`);
       });
 });
 
@@ -68,7 +67,6 @@ app.get('/delete/id/:id', (req,res) => {
     let html = view.index('글 삭제', list, content, control);
     res.send(html);
   });
-
 });
 
 app.post('/delete', (req,res) => { 
@@ -95,24 +93,18 @@ app.get('/update/id/:id', (req,res) => {
   });
 });
 
-app.post('/update', (req,res) => { 
-  let param = qs.parse(body);
+app.post('/update', (req,res) => {   
   let subject = req.body.subject;
   let original = req.body.original ;
   let description =req.body.description ;
   let filepath = 'data/' + original + '.txt';
   fs.writeFile(filepath, description, error => {
-      let encoded = encodeURI(`/id/${subject}`);
-      
       if (original !== subject) {
           fs.renameSync(filepath, `data/${subject}.txt`);
       }
-      res.status(302).redirect(encoded);
+      res.redirect(`/id/${subject}`);
   });
 });
-
-
-
 
 app.get('*', (req, res) => {
   res.status(404).send('Path not found');

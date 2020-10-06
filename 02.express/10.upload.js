@@ -7,7 +7,7 @@ const app =express();
 
 
 app.use(bodyParser.urlencoded({ extended : false}));
-//app.use(multipart({uploadDir: __dirname + '/public/upload'}))
+app.use(multipart({uploadDir: __dirname + '/public/upload'}))
 
 //로그인 화면을 get방식으로 보여준다.
 app.get('/', function (req,res) {  
@@ -18,14 +18,15 @@ app.get('/', function (req,res) {
 
 app.post('/', (req,res) => {
     let comment =req.body.comment;
-   /*  let filename = req.files.image.name;
+    console.log(req.files);
+   let filename = req.files.image.name;
     let uploadpath = req.files.image.path ;
     let filetype= req.files.image.type ;
-    console.log(filename,filetype);
-    console.log(uploadpath);
-    console.log(req.body); */
-    console.log(req.files);
-    res.redirect('/');
+    //console.log(filename,filetype);
+   // console.log(uploadpath);
+   // console.log(req.body); 
+    
+    //res.redirect('/');
 
     //받은 파일이 이미지면,이름을 변경하고, 아니면 제거
     if (filetype.indexOf('image') >= 0) {
@@ -39,7 +40,11 @@ app.post('/', (req,res) => {
             
         })
     } else {
-
+        fs.unlink(uploadPath, error => {
+            if (error)
+                console.log(error);
+            res.status(400).send('<h1>Bad Request</h1>');
+        });
     }    
 });
 
