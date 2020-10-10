@@ -14,14 +14,14 @@ let conn = mysql.createConnection({
 conn.connect();
 
 let sql = `SELECT * FROM country;
-SELECT NAME, continent,COUNT(*),GROUP_CONCAT(NAME) FROM country
+SELECT NAME, continent,COUNT(*) as CountCont,GROUP_CONCAT(NAME) as NameCont FROM country
 GROUP BY continent;
 `;
 conn.query(sql, function(error, rows,fields){
     if (error)
         console.log(error); 
     for(let row of rows) {
-        console.log(row.ggid,row.NAME,row.debutDate,row.hit_song_id);
+        console.log(row.NAME,row.ConutCont,row.NameCont);
     }  //대소문자 반드시 구별해야한다! 
     
 });
