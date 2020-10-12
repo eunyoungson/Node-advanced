@@ -29,3 +29,5 @@ conn.query(sql, function(error, rows, fields) {
 });
 
 conn.end();
+
+//insert into(title,lyrics) values('Dynamite,'icame to dance-dance');
