@@ -27,12 +27,12 @@ let pwdHash = genHash(pwd)
 
 conn.connect();
 
-let sql = `SELECT * FROM users	where uid like ?;`;
+let sql = `SELECT * FROM users	where uid like ?;`; //여러개일때 params
 //let params =['admin', output,'관리자']
 conn.query(sql, uid, function(error,results,fields){
     if (error)
         console.log(error); 
-    console.log(result);
+        console.log(result);
     let result = results[0];
     if (result.pwd === pwdHash) {
         console.log('로그인 성공');

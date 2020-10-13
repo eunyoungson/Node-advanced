@@ -23,7 +23,7 @@ module.exports.insertForm = function() {
                 </tr>
                 
                 <tr>
-                    <td colspan="2"><input type="submit" value="제출"></td>
+                    <td colspan="2" style="text-align:center"><input type="submit" value="제출"></td>
                 </tr>
             </table>
         </form>

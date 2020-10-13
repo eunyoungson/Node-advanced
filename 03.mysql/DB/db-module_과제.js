@@ -21,7 +21,7 @@ module.exports = {
     },
     getAllLists: function(callback) {
         let conn = this.getConnection();
-        let sql = `SELECT * FROM girl_group ORDER BY ggid DESC LIMIT 15;`;
+        let sql = `SELECT ggid, name, date_format(debut, '%Y-%m-%d ') AS debut,hit_song_id FROM girl_group ORDER BY ggid DESC LIMIT 15;`;
         conn.query(sql, (error, rows, fields) => {
             if (error)
                 console.log(error);
@@ -54,7 +54,7 @@ module.exports = {
         conn.end();
     },
     getSong: function(ggid,callback) {
-        let sql = `select *  from girl_group where ggid=?;`;
+        let sql = `select ggid, name, date_format(debut, '%Y-%m-%d ') AS debut,hit_song_id from girl_group where ggid=?;`;
         let conn = this.getConnection();
         conn.query(sql, ggid, function(error, rows, fields) {
                if (error)

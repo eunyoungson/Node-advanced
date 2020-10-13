@@ -14,14 +14,7 @@ input.on('readable', () =>{
     }
 }); */
 
-/* var crypto = require('crypto');
-var shasum = crypto.createHash('sha256'); //sha512
-shasum.update('crypto_hash');
-//var output = shasum.digest('hex');
-var output = shasum.digest('base64');
 
-console.log('password:', output);
-console.log(output.length); */
 
 var crypto = require('crypto');
 var shasum = crypto.createHash('sha256'); //sha512
