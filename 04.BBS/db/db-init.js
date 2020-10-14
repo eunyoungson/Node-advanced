@@ -18,16 +18,20 @@ function getConnection() {
     return conn;
 }
 
-let sql = `SELECT song.sid, song.title, gg.name, song.lyrics FROM song
-left JOIN girl_group AS gg
-ON song.sid=gg.hit_song_id
-ORDER BY song.sid DESC
-LIMIT 10;`;
+let sql = `create table if not exists bbs (
+    bid int not null primary key,
+    pwd char(44) not null ,
+    uname varchar(20) not null,
+    tel varchar(20),
+    email.varchar(40),
+    regDate datetime Default current_timestamp,
+    isDeleted int Default 0
+)`;
 let conn = getConnection();
-conn.query(sql, function(error, rows, fields) {
+conn.query(sql, function(error,  fields) {
     if (error)
         console.log(error);
-    console.log(rows);
+    
 });
 conn.end();
 

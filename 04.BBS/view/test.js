@@ -1,4 +1,4 @@
-const template = require('./template');
+const template = require('./template'); //여기 파일위치 조정
 
 module.exports.test = function () {
 	return `

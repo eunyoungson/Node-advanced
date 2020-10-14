@@ -21,8 +21,8 @@ module.exports = {
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <!-- Brand/logo -->
         
-            <a class="navbar-brand" href="index.html">
-                <img src="img/logo.jpg" alt="logo" style="width:40px; margin-left: 50px;">
+            <a class="navbar-brand" href="0917.html">
+                <img src="/img/logo.jpg" alt="logo" style="width:40px; margin-left: 50px;">
             </a>
             
             <!-- Links -->
@@ -41,10 +41,19 @@ module.exports = {
                     <a class="nav-link" disabled href="#">SAMPLE</a>
                 </li>
             </ul>
-
-            <span class="navbar-text " style="margin-right: 50px ;"  >
-                로그인 해주셔서 감사합니다.
-            </span>   
+            <ul class="nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-home"></i>홈</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">로그아웃</a>
+                </li>
+            </ul>
+            <div class="navbar-text fixed-right" id="weather">
+                홀길동님 반갑습니다.&nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="fas fa-cloud-sun"></i> 20&deg;C
+            </div>
+              
         </nav>
         `;
     }, 
@@ -52,15 +61,14 @@ module.exports = {
 
         return`
         <nav class="navbar navbar-expand-sm bg-secondary navbar-dark fixed-bottom justify-content-center">
-
-            <!-- Navbar text-->
+          
             <span class="navbar-text "  >
-                Copyright &copy; 2020 Hoseo Institute of Big Data
+                Copyright & copy; 2020 Hoseo Institute of Big Data
             </span>
 
         </nav>
-        </body>
-        </html>
+    </body>
+    </html>
         `
 
     }
