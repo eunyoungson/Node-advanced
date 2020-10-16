@@ -23,12 +23,46 @@ app.use(session({
 app.use('/user', uRouter);
 
 app.get('/', (req, res) => {
-    fs.readFile('./view/index.html', 'utf8', (error, data) => {
+    fs.readFile('./view/login_P.html', 'utf8', (error, data) => {
         res.send(data);
     });
     /* const view = require('./view/test');
     let html = view.test();
     res.send(html); */
+});
+app.get('/login', (req, res) => {
+    const view = require('./view/userLogin');
+    let html = view.loginForm();
+    res.send(html);
+});
+
+app.post('/login', (req, res) => {
+    let uid = req.body.uid;
+    let pwd = req.body.pwd;
+    let pwdHash = ut.generateHash(pwd);
+    dm.getUserInfo(uid, result => {
+        if (result === undefined) {
+            let html = am.alertMsg(`Login 실패: uid ${uid}이/가 없습니다.`, '/login');
+            res.send(html);
+        } else {
+            if (result.pwd === pwdHash) {
+                req.session.uid = uid;
+                req.session.uname = result.uname;
+                console.log('Login 성공');
+                req.session.save(function() {
+                    res.redirect('/');
+                });
+            } else {
+                let html = am.alertMsg('Login 실패: 패스워드가 다릅니다.', '/login');
+                res.send(html);
+            }
+        }
+    });
+});
+
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/login');
 });
 
 app.listen(3000, () => {
