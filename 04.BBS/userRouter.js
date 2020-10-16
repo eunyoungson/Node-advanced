@@ -2,7 +2,7 @@ const express = require('express');
 
 const uRouter = express.Router();
 uRouter.get('/register', (req, res) => {
-    const view = require('./view/userRegister');
+    const view = require('./view/registerP');
     let html = view.register();
     res.send(html);
 });

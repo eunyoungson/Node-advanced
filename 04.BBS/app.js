@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
     res.send(html); */
 });
 app.get('/login', (req, res) => {
-    const view = require('./view/userLogin');
+    const view = require('./view/login_P.html');
     let html = view.loginForm();
     res.send(html);
 });
