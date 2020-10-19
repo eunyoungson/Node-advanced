@@ -20,7 +20,7 @@ module.exports.view = function (navBar, result, replies) {
         ${navBar}
     
         <div class="col-10">
-        <h4>글제목</h4>
+        <h4>${title}</h4>
         <br>  
         <h6> 글번호${result.bid} | ${result.uname} |글시간 ${result.modTime} </h6>
         <h6 style="text-align: right;"> 조회 ${result.viewCount+1} |댓글 ${result.replyCount} </h6>

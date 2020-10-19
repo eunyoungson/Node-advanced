@@ -3,6 +3,34 @@ const template = require('./templateP');
 module.exports.register = function () {
 	return `
 		${templateP.header()}
+		<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <!-- Brand/logo -->
+  
+  <a class="navbar-brand" href="0917.html">
+    <img src="img/logo.jpg" alt="logo" style="width:40px; margin-left: 50px;">
+  </a>
+  
+  <!-- Links -->
+
+  <ul class="navbar-nav" style="margin-right: 650px;">
+    <li class="nav-item">
+        <a class="nav-link" href="https://ko.wikipedia.org/wiki/강아지">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://ko.wikipedia.org/wiki/강아지">Store</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Board</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" disabled href="#">Contact</a>
+      </li>
+  </ul>
+
+  
+  
+</nav>
+<div>
         <div class="container">
 		<div class="row">
 			<div class="col-12" ">
