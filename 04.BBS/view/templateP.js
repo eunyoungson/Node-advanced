@@ -44,7 +44,7 @@ module.exports = {
   
     
     <span class="navbar-text " style="margin-right: 50px ;"  >   
-      ${uname} 누구님 반갑습니다.
+      ${uname}님 반갑습니다.
     </span> 
     <ul class="nav mr-auto">
       <li class="nav-item">

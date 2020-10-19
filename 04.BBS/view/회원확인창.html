@@ -20,7 +20,7 @@
   
   <!-- Links -->
 
-  <ul class="navbar-nav" style="margin-right: 650px;>
+  <ul class="navbar-nav" style="margin-right: 650px;">
     <li class="nav-item">
         <a class="nav-link" href="https://ko.wikipedia.org/wiki/강아지">About</a>
       </li>
@@ -87,29 +87,50 @@
         
         <!--여기 부분이 바뀌는 포인트-->
       
-    <div class="col-10">
-      <h4>글제목</h4>
-      <br>  
-      <h6> 글번호 | 글쓴이 | 글시간 </h6>
-      <h6 style="text-align: right;">  조회  |댓글 
-      <br>            
-      <hr>      
-      <p>글내용</p>    
-      <br>  
-      <span style="font-size: 1.5em; text-align: right;">
-        <a href="/bbs/update/${result.bid}"><i class="fas fa-edit"></i></a>&nbsp;
-        <a href="/bbs/delete/${result.bid}"><i class="fas fa-trash-alt"></i></a>
-      </span>
-     
-                
-      <form class="form-inline" action="/bbs/reply" method="post" style="margin: auto;">
-        <label for="replyContent" style="margin-right: 20px;">댓글</label>
-        <textarea class="form-control" rows="4" cols="80" id="replycontent" style="margin-right: 20px;" ></textarea>
-        <input  class="btn btn-info" type="submit" value="등록" onclick="location.href='#'"> 
-      </form>           
-    </div>       
-  </div> 
-</div>
+        <div class="col-10" >
+          <h3>회원정보 상세조회</h3>
+               
+          <table class="table table-condensed" style="margin: 60px;">
+              <tr>
+                  <td>사용자 ID</td>
+                  <td>${data.uid}</td>
+              </tr>
+              <tr>
+                  <td>이름</td>
+                  <td>${data.uname}</td>
+              </tr>
+              <tr>
+                  <td>전화번호</td>
+                  <td>${data.tel}</td>
+              </tr>
+              <tr>
+                  <td>이메일</td>
+                  <td>${data.email}</td>
+              </tr>
+              <tr>
+                  <td>강아지 이름</td>
+                  <td>${data.puppyName}</td>
+              </tr>
+              <tr>
+                  <td>강아지 종류</td>
+                  <td>${data.breed}</td>
+              </tr>
+              <tr>
+                  <td>강아지 생년월일</td>
+                  <td>${data.birthday}</td>
+              </tr>
+              <tr>
+                  <td>강아지 성별</td>
+                  <td>${data.gender}</td>
+              </tr>
+              
+              <tr>
+                  <td colspan="2" style="text-align: center; padding-top: 20px;">
+                      <button class="btn btn-primary" onclick="location.href='/bbs/list/1'">확인</button>
+                  </td>
+              </tr>
+          </table>
+      </div>
 
 <nav class="navbar navbar-expand-sm bg-secondary navbar-dark fixed-bottom justify-content-center">
 
