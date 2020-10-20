@@ -8,7 +8,8 @@ const uRouter = express.Router();
 uRouter.get('/register', (req, res) => {
     const view = require('./view/userRegister');
     let html = view.register();
-    res.send(html);
+    res.send(html); 
+    
 });
 
 uRouter.post('/register', (req, res) => {
@@ -19,16 +20,16 @@ uRouter.post('/register', (req, res) => {
     let tel = req.body.tel;
     let email = req.body.email;
     let puppyName = req.body.puppyName;
-    let breed = req.body.breed;
+    let breed = req.body.species;
     let birthday = req.body.birthday;
     let gender = req.body.gender;
-    res.send(`<h1>uid: ${uid}, pwd: ${pwd}, pwd2: ${pwd2}, uname: ${uname},${tel},${email},puppy : ${puppyName},${breed},${birthday},${gender}</h1>`);
+    res.send(`<h1>uid: ${uid}, pwd: ${pwd}, pwd2: ${pwd2}, uname: ${uname},${tel},${email},puppy : ${puppyName},${species},${birthday},${gender}</h1>`);
     if (pwd !==pwd2) {
         let html = alert.alertMsg('패스워드가 서로 다릅니다.');
          res.send(html);    
     } else {
         let pwdHash = ut.generateHash(pwd);
-        let params = [uid, pwdHash, uname, tel, email,puppyName,breed,birthday,gender];
+        let params = [uid, pwdHash, uname, tel, email,puppyName,species,birthday,gender];
         dm.registerUser(params, () => {
             res.redirect('/login');
         });

@@ -31,7 +31,7 @@ module.exports.view = function(navBar, data) {
                 </tr>
                 <tr>
                     <td>강아지 종류</td>
-                    <td>${data.breed}</td>
+                    <td>${data.species}</td>
                 </tr>
                 <tr>
                     <td>강아지 생년월일</td>

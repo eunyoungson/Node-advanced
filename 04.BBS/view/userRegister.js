@@ -2,7 +2,8 @@ const template = require('./templateP');
 
 module.exports.register = function () {
 	return `
-		${templateP.header()}
+		${template.header()}
+	
 		<nav class="navbar navbar-expand-md bg-dark navbar-dark">
       <!-- Brand/logo -->
   
@@ -30,11 +31,11 @@ module.exports.register = function () {
   
   
 </nav>
-<div>
-        <div class="container">
+<div >
+        <div class="container" >
 		<div class="row">
 			<div class="col-12" ">
-				<h3>회원 가입</h3>
+				<h3 >회원 가입</h3>
 				<hr>
 			</div>
 			<div class="col-3"></div>
@@ -76,8 +77,8 @@ module.exports.register = function () {
 							<td><input type="text" name="PuppyName" id="puppyName" placeholder=" your puppy's name"></td>
 						</tr>
 						<tr>
-							<td><label for="breed">강아지 종류</label></td>
-							<td><input type="text" name="breed" id="breed" placeholder="breed"></td>
+							<td><label for="species">강아지 종류</label></td>
+							<td><input type="text" name="species" id="species" placeholder="species"></td>
 						</tr>
 						<tr>
 							<td><label for="birthday">강아지 생년월일</label></td>
@@ -115,9 +116,9 @@ module.exports.register = function () {
 						</tr> -->
 						<tr>
 							<td colspan="3" style="text-align: center; padding-right: 30%; " >
-								<input class="btn btn-info" type="submit" value="가입신청" style="margin-right: 5px;" onclick="location.href='#'">
-								<input class="btn btn-secondary" type="reset" value="취소" style="margin-right: 5px;"onclick="location.href='#'">
-								<input class="btn btn-secondary" type="submit" value="수정하기" onclick="location.href='#'">
+								<input class="btn btn-info" type="submit" value="가입신청" style="margin-right: 5px;" >
+								<input class="btn btn-secondary" type="reset" value="취소" style="margin-right: 5px;">
+								<input class="btn btn-secondary" type="submit" value="수정하기" >
 							</td>
 						</tr>
 					</table>
@@ -127,6 +128,6 @@ module.exports.register = function () {
 		</div>
 	</div>
 	
-		${templateP.footer()}
+		${template.footer()}
     `;
 }

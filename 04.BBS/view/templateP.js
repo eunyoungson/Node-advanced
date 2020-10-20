@@ -53,7 +53,7 @@ module.exports = {
     </ul>  
   </nav>
   <div>
-    <img src="img/1.jpg" alt="닥스훈트" style="width: 100%; height: 300px;"
+    <img src="./img/1.jpg" alt="닥스훈트" style="width: 100%; height: 300px;"
   </div>
   <!--본문-->
   <div class="container" style="margin-top: 30px;">

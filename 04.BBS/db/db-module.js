@@ -19,26 +19,24 @@ module.exports = {
         return conn;
     },
     //BBS 여기부터 바꾸기.
-  /*   getBbsLists:    function(callback) {
+   getBbsLists:    function(callback) {
         let conn = this.getConnection();
-        let sql = `SELECT b.bid, b.uid,u.uname,b.title,b.content, b.modTime, b.viewCount, b.replyCount,              
-                    FROM bbs AS b
-                    JOIN users AS u
-                    ON b.uid=u.uid
-                    WHERE b.isDeleted=0
-                    ORDER BY b.bid desc 
+        let sql = `SELECT bid, title, content, modTime, replyCount             
+                    FROM bbs                     
+                    WHERE isDeleted=0
+                    ORDER BY bid desc 
                     LIMIT 10;`;
         conn.query(sql, (error, rows, fields) => {
             if (error)
                 console.log(error);
             callback(rows);
         });
-        conn.end(); */
-    //},
+        conn.end(); 
+   },
     //user
     registerUser:     function(params, callback) {
         let conn = this.getConnection();
-        let sql = `insert into users(uid, pwd, uname, tel, email,puppyName,breed,birthday,gender) values(?,?,?,?,?,?,?,?,?);`;
+        let sql = `insert into users(uid, pwd, uname, tel, email,puppyName,species,birthday,gender) values(?,?,?,?,?,?,?,?,?);`;
         conn.query(sql, params, (error, fields) => {
             if (error)
                 console.log(error);
@@ -49,7 +47,7 @@ module.exports = {
     //여기부터는 동일
     getUserInfo:    function(uid, callback) {
         let conn = this.getConnection();
-        let sql = `select uid,uname,tel,email,puppyName,breed,birthday,gender from users where uid like ?;`;
+        let sql = `select uid,pwd,uname,tel,email,puppyName,species,birthday,gender from users where uid like ?;`;
         conn.query(sql, uid, (error, results, fields) => {
             if (error)
                 console.log(error);

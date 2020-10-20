@@ -6,8 +6,9 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const uRouter = require('./userRouter');
 const dm = require('./db/db-module');
-//const bRouter = require('./bbsRouter');
+const bRouter = require('./bbsRouter');
 const ut = require('./util');
+const am = require('./view/alertMsg');
 
 const app = express();
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
@@ -23,37 +24,34 @@ app.use(session({
     store: new FileStore({logFn: function(){}})
 }));
 app.use('/user', uRouter);
-//app.use('/bbs', bRouter);
+app.use('/bbs', bRouter);
 
-app.get('/', (req, res) => {
-    fs.readFile('./view/login_P.html', 'utf8', (error, data) => {
-        res.send(data);
-    });
-    /* const view = require('./view/test');
-    let html = view.test();
-    res.send(html); */
+app.get('/', ut.isLoggedIn, (req, res) => {
+    res.redirect('/bbs/list');
 });
 app.get('/login', (req, res) => {
-    const view = require('./view/login_P.html');
-    let html = view.loginForm();
-    res.send(html);
+    fs.readFile('./view/login_P.html', 'utf8', (error, html) => {
+        res.send(html);
+    });
 });
 
 app.post('/login', (req, res) => {
     let uid = req.body.uid;
     let pwd = req.body.pwd;
     let pwdHash = ut.generateHash(pwd);
+    //console.log(uid, pwd, pwdHash);
     dm.getUserInfo(uid, result => {
         if (result === undefined) {
             let html = am.alertMsg(`Login 실패: uid ${uid}이/가 없습니다.`, '/login');
             res.send(html);
         } else {
+            //console.log(result.pwd);
             if (result.pwd === pwdHash) {
                 req.session.uid = uid;
                 req.session.uname = result.uname;
-                console.log('Login 성공');
+                //console.log('Login 성공');
                 req.session.save(function() {
-                    res.redirect('/');
+                    res.redirect('/bbs/list');
                 });
             } else {
                 let html = am.alertMsg('Login 실패: 패스워드가 다릅니다.', '/login');
