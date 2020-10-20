@@ -35,6 +35,17 @@ module.exports = {
         });
         conn.end();
     },
+    //user
+    registerUser:     function(params, callback) {
+        let conn = this.getConnection();
+        let sql = `insert into users(uid, pwd, uname, tel, email,puppyName,breed,birthday,gender) values(?,?,?,?,?,?,?,?,?);`;
+        conn.query(sql, params, (error, fields) => {
+            if (error)
+                console.log(error);
+            callback();
+        });
+        conn.end();
+    },
     //여기부터는 동일
     getUserInfo:    function(uid, callback) {
         let conn = this.getConnection();

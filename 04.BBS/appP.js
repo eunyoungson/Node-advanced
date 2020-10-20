@@ -6,7 +6,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const uRouter = require('./userRouter');
 const dm = require('./db/db-module');
-const bRouter = require('./bbsRouter');
+//const bRouter = require('./bbsRouter');
 const ut = require('./util');
 
 const app = express();
@@ -23,7 +23,7 @@ app.use(session({
     store: new FileStore({logFn: function(){}})
 }));
 app.use('/user', uRouter);
-app.use('/bbs', bRouter);
+//app.use('/bbs', bRouter);
 
 app.get('/', (req, res) => {
     fs.readFile('./view/login_P.html', 'utf8', (error, data) => {
