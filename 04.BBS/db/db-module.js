@@ -19,7 +19,7 @@ module.exports = {
         return conn;
     },
     //BBS 여기부터 바꾸기.
-    getBbsLists:    function(callback) {
+  /*   getBbsLists:    function(callback) {
         let conn = this.getConnection();
         let sql = `SELECT b.bid, b.uid,u.uname,b.title,b.content, b.modTime, b.viewCount, b.replyCount,              
                     FROM bbs AS b
@@ -33,8 +33,8 @@ module.exports = {
                 console.log(error);
             callback(rows);
         });
-        conn.end();
-    },
+        conn.end(); */
+    //},
     //user
     registerUser:     function(params, callback) {
         let conn = this.getConnection();
