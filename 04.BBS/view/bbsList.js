@@ -4,17 +4,17 @@ const ut = require('../util');
 module.exports.list = function ( navBar,data) { //, pageNo, startPage, endPage, totalPage 페이지 쓰게되면
     let trs = '';
     for (let row of data) {
-        let displayTime = ut.getDisplayTime(row.modTime);
+        //let displayTime = ut.getDisplayTime(row.modTime);
        /*  let title = (row.replyCount == 0) ? row.title :
             `${row.title}<span class="text-danger">[${row.replyCount}]</span>`; */
-        trs += `<tr class="d-flex">
+        trs += `<tr class="flex"> 
                     <td style="text-align: center;">${row.bid}</td>
-                    <td style="text-align: center;"><a href="/bbs/bid/${row.bid}"><strong>${title}</strong></a></td>
+                    <td style="text-align: center;"><a href="/bbs/bid/${row.bid}"><strong>${row.title}</strong></a></td>
                     <td style="text-align: center;">${row.uname}</td>
-                    <td style="text-align: center;">${displayTime}</td>
+                    <td style="text-align: center;">${row.displayTime}</td>
                     <td style="text-align: center;">${row.viewCount}</td>
                 </tr>
-        `;
+        `; //밑에와 테이블 명을 그 칸에 맞쳐주어야 들어간다
     }
     //페이지 지원
    /*  let leftPage = (pageNo > 10) ? `/bbs/list/${Math.floor(pageNo/10) * 10}` : '#';
@@ -43,10 +43,10 @@ module.exports.list = function ( navBar,data) { //, pageNo, startPage, endPage, 
         ${navBar}
         <div class="col-10">
             <div class="container-fluid">
-            <h6>문의사항</h6>
+            <h6>공지사항 및 문의사항</h6>
             <hr>
             <table class="table table-hover">        
-                <tr class="table-active">
+                <tr class="table-secondary flex">
                     <td style="text-align:center">번호</td>
                     <td style="text-align:center">제목</td>
                     <td style="text-align:center">글쓴이</td>

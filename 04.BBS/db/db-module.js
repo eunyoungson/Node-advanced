@@ -21,10 +21,12 @@ module.exports = {
     //BBS 여기부터 바꾸기.
    getBbsLists:    function(callback) {
         let conn = this.getConnection();
-        let sql = `SELECT bid, title, content, modTime, replyCount             
-                    FROM bbs                     
-                    WHERE isDeleted=0
-                    ORDER BY bid desc 
+        let sql = `SELECT b.bid, b.title, u.uname, DATE_FORMAT(b.modTime,'%Y-%m-%d %T') AS displayTime, b.replyCount             
+                    FROM bbs as b
+                    join users as u
+                    on b.uid=u.uid                
+                    WHERE b.isDeleted=0
+                    ORDER BY b.bid desc 
                     LIMIT 10;`;
         conn.query(sql, (error, rows, fields) => {
             if (error)

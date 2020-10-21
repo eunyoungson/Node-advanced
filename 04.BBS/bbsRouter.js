@@ -15,4 +15,15 @@ bRouter.get('/list', (req, res) => {
     });
     
 });
+
+bRouter.get('/bid/:bid', ut.isLoggedIn, (req, res) => {
+    let bid = parseInt(req.params.bid);
+    dm.getBbsData(bid, result => {
+        let navbar = tplt.navBar(req.session.uname);
+        const view = require('./view/bbsView');
+        let html = view.list(navbar,result);
+        res.send(html); 
+    });
+});
+
 module.exports = bRouter;
