@@ -56,7 +56,7 @@ module.exports.list = function ( navBar,data) { //, pageNo, startPage, endPage, 
             ${trs}
             </table>
             <div style="text-align:center">
-            <a class="nav-link" href="/bbs/write"><i class="far fa-edit"></i>글쓰기</a>
+            <a class="nav-link" href="/bbs/write"><i class="far fa-edit">글쓰기</i></a>
            </div>
             <ul class="pagination justify-content-center">
                 <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>

@@ -15,9 +15,9 @@ module.exports.write = function (navBar) {
                 <br>
                 <label for="Comment">내용</label>
                 
-                <textarea class="form-control" rows="8" id="comment" ></textarea>
+                <textarea class="form-control" name="content" id="content" rows="8"  ></textarea>
                 <br>
-               <input  class="btn btn-info" type="submit" value="글쓰기" onclick="location.href='#'"> 
+               <input  class="btn btn-info" type="submit"  value="글쓰기" onclick="location.href='#'"> 
                <input  class="btn btn-secondary" type="reset" value="취소" onclick="location.href='#'">               
           </form>
         </div> 

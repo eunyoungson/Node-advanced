@@ -109,6 +109,27 @@ insertReply:  function(params, callback) {
     console.log(params);
     conn.end();
 },
+insertBbs: function(params, callback) {
+    let conn = this.getConnection();
+    let sql = `insert into bbs(uid,title,content) values(?,?,?);`;
+    conn.query(sql, params, (error, fields) => {
+        if (error)
+            console.log(error);
+        callback();
+    });
+    conn.end();
+},
+updateBbs:  function(params, callback) {
+    let conn = this.getConnection();
+    let sql = `update bbs set title=?, content=?, modTime=now() where bid=?;`;
+    conn.query(sql, params, (error, fields) => {
+        if (error)
+            console.log(error);
+        callback();
+    });
+    conn.end();
+},
+
 
 
     //user
