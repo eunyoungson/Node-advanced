@@ -10,7 +10,7 @@ module.exports.view = function (navBar, result, replies) {
         cards += `
                     <div class="card-body">
                         ${reply.uname}&nbsp;&nbsp;${reply.regTime}<br>
-                        ${reply.content.replace(/\r/g, '<br>')}
+                        ${reply.content.replace(/\n/g, '<br>')}
                     </div>
                 </div>`;
     }
@@ -20,9 +20,9 @@ module.exports.view = function (navBar, result, replies) {
         ${navBar}
     
         <div class="col-10">
-        <h4>${title}</h4>
+        <h4>${result.title}</h4>
         <br>  
-        <h6> 글번호${result.bid} | ${result.uname} |글시간 ${result.modTime} </h6>
+        <h6> 글번호${result.bid} | ${result.uname} | ${result.displayTime} </h6>
         <h6 style="text-align: right;"> 조회 ${result.viewCount+1} |댓글 ${result.replyCount} </h6>
         <br>            
         <hr>      
@@ -35,8 +35,10 @@ module.exports.view = function (navBar, result, replies) {
        
         ${cards}         
         <form class="form-inline" action="/bbs/reply" method="post" style="margin: auto;">
-          <label for="replyContent" style="margin-right: 20px;">댓글</label>
-          <textarea class="form-control" rows="4" cols="80" id="replycontent" style="margin-right: 20px;" ></textarea>
+          <input type="hidden" name="bid" value="${result.bid}">
+          <input type="hidden" name="uid" value="${result.uid}">
+          <label for="content" style="margin-right: 20px;">댓글</label>      
+          <textarea class="form-control" rows="4" cols="80" id="content" style="margin-right: 20px;" name="content"></textarea>
           <input  class="btn btn-info" type="submit" value="등록" onclick="location.href='#'"> 
         </form>           
       </div>       
