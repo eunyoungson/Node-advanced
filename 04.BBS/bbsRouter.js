@@ -83,5 +83,28 @@ bRouter.post('/update', ut.isLoggedIn,(req,res)=>{
         res.redirect(`/bbs/bid/${bid}`);
     });
 });
+bRouter.get('/delete/:bid/uid/:uid',ut.isLoggedIn,(req,res)=>{
+    let bid = req.params.bid;
+    let uid = req.params.uid;
+    if (uid !== req.session.uid) {
+        let html = alert.alertMsg('삭제 권한이 없습니다.', `/bbs/bid/${bid}`);
+        res.send(html);
+    } else {
+        
+            let view = require('./view/bbsDelete');
+            let navBar = tplt.navBar(req.session.uname);
+            let html = view.delete(navBar, bid);
+            res.send(html);
+        
+    }
+});
+
+bRouter.get('/deleteConfirm/:bid', ut.isLoggedIn, (req, res) => {
+    let bid = req.params.bid;
+    //let page = parseInt(req.session.currentPage);
+    dm.deleteBbs(bid, () => {
+        res.redirect(`/bbs/list`);
+    });
+});
 
 module.exports = bRouter;

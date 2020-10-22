@@ -130,6 +130,16 @@ updateBbs:  function(params, callback) {
     });
     conn.end();
 },
+deleteBbs: function(bid,callback) {
+    let conn = this.getConnection();
+    let sql = `update bbs set isDeleted=1 where bid =? `;
+    conn.query(sql, bid, (error, fields) => {
+        if (error)
+            console.log(error);
+        callback();
+    });
+    conn.end();
+},
 
 
 

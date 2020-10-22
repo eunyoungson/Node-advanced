@@ -4,15 +4,11 @@ module.exports.delete = function (navBar, bid) {
 	return `
 		${tplt.header()}
         ${navBar}
-<div class="container" style="margin-top: 90px;">  
-    <div class="row">
-        <div class="col-10">
+
+        <div class="col-10" style="margin-top: 40px; padding-left:80px;">
             <h3>게시판 글삭제</h3>
-            <hr>
-        </div>
-        <div class="col-2"></div>
-        <div class="col-6">
-            <div class="card border-warning mt-3">
+            <hr style="margin-bottom:40px;">
+            <div class="card border-warning mt-3" >
                 <div class="card-body">
                     <h5 class="card-title">삭제하시겠습니까?</h5>
                     <p class="card-text text-center">
@@ -22,9 +18,7 @@ module.exports.delete = function (navBar, bid) {
                 </div>
             </div>
         </div>
-        <div class="col-2"></div>
-    </div>
-</div>
+
 		${tplt.footer()}
     `;
 }
