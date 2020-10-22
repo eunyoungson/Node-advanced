@@ -54,6 +54,7 @@ bRouter.post('/write', ut.isLoggedIn,(req,res)=>{
     let content = req.body.content;
     let params = [uid,title,content];
     dm.insertBbs(params,()=>{
+        console.log(params);
         res.redirect('/bbs/list')
     });
 }); //경로보기
