@@ -8,7 +8,7 @@ module.exports.write = function (navBar) {
         <div class="container-fluid">
           <h6>수정</h6>
           <hr>
-          <form action="bbs/write" method="post" style="padding: 5px;">        
+          <form action="/bbs/write" method="post" style="padding: 5px;">        
                <label for="title"><span>제목</span></label>
                 <br>
                 <input type="text" name="title" id="title"  style="margin-bottom: 20px;">
@@ -24,6 +24,6 @@ module.exports.write = function (navBar) {
         </div> 
         
       </div>   
-
+      ${tplt.footer()}
     `;
 }

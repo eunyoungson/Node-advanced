@@ -49,16 +49,16 @@ bRouter.get('/write', ut.isLoggedIn,(req,res)=>{
     res.send(html);
 });
 bRouter.post('/write', ut.isLoggedIn,(req,res)=>{
-    let uid = req.session.uid;
+    //let uid = req.session.uid;
     let title = req.body.title;
     let content = req.body.content;
-    let params = [uid,title,content];
+    let params = [req.session.uid,title,content];
     dm.insertBbs(params,()=>{
         console.log(params);
         res.redirect('/bbs/list')
     });
 }); //경로보기
-bRouter.get('/update:bid',ut.isLoggedIn,(req,res) => {
+bRouter.get('/update/:bid/uid/:uid',ut.isLoggedIn,(req,res) => { //권한때문에 uid 써주기
     let bid = req.params.bid;
     let uid = req.params.uid;
     if (uid !== req.session.uid) {

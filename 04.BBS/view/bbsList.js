@@ -43,7 +43,8 @@ module.exports.list = function ( navBar,data) { //, pageNo, startPage, endPage, 
         ${navBar}
         <div class="col-10">
             <div class="container-fluid">
-            <h6>공지사항 및 문의사항</h6>
+            <h6 style="display:inline">공지사항 및 문의사항</h6>
+            <a class="nav-link" href="/bbs/write" style="margin-left: 90% ; display:inline"><i class="far fa-edit"></i></a>
             <hr>
             <table class="table table-hover">        
                 <tr class="table-secondary flex">
@@ -55,9 +56,7 @@ module.exports.list = function ( navBar,data) { //, pageNo, startPage, endPage, 
                 </tr>
             ${trs}
             </table>
-            <div style="text-align:center">
-            <a class="nav-link" href="/bbs/write"><i class="far fa-edit">글쓰기</i></a>
-           </div>
+           
             <ul class="pagination justify-content-center">
                 <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
                 <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>

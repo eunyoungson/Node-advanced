@@ -117,6 +117,7 @@ insertBbs: function(params, callback) {
             console.log(error);
         callback();
     });
+    console.log(params);
     conn.end();
 },
 updateBbs:  function(params, callback) {

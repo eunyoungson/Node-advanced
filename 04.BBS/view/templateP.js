@@ -8,12 +8,12 @@ module.exports = {
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"> 
-            <link rel="stylesheet" href="/fontawesome-free-5.15.1-web/css/all.min.css">
+            <link rel="stylesheet" href="/fontawesome-free-5.15.1-web/fontawesome-free-5.15.1-web/css/all.min.css">
             <script src="/jquery/jquery.min.js"></script>
             <script src="/popper/popper.min.js"></script>
             <script src="/bootstrap/js/bootstrap.min.js"></script>
         </head>
-        <body>
+        <body style="margin-bottom: 100px;">
         `;
     },
     navBar:     function(uname) {
@@ -22,7 +22,7 @@ module.exports = {
         <!-- Brand/logo -->
     
     <a class="navbar-brand" href="#">
-      <img src="/logo.jpg" alt="logo" style="width:40px; margin-left: 50px;">
+      <img src="/img/요미로고3.png" alt="logo" style="width:40px; margin-left: 50px;">
     </a>
     
     <!-- Links -->
@@ -43,7 +43,7 @@ module.exports = {
     </ul>
   
     
-    <span class="navbar-text " style="margin-right: 50px ;"  >   
+    <span class="navbar-text " style="margin-right: 30px ; margin-left: 20%"  >   
       ${uname}님 반갑습니다.
     </span> 
     <ul class="nav mr-auto">
@@ -53,7 +53,7 @@ module.exports = {
     </ul>  
   </nav>
   <div>
-    <img src="img/닥스.jpg" alt="닥스훈트" id=" style="width: 100%; height: 200px;">
+    <img src="/img/닥스.jpg" alt="닥스훈트" id=" style="width: 100%; ">
   </div>
   <!--본문-->
   <div class="container" style="margin-top: 30px;">
