@@ -8,7 +8,7 @@ module.exports.register = function () {
       <!-- Brand/logo -->
   
   <a class="navbar-brand" href="0917.html">
-    <img src="img/logo.jpg" alt="logo" style="width:40px; margin-left: 50px;">
+    <img src="/img/요미로고3.png" alt="logo" style="width:40px; margin-left: 50px;">
   </a>
   
   <!-- Links -->
@@ -34,7 +34,7 @@ module.exports.register = function () {
 <div >
         <div class="container" >
 		<div class="row">
-			<div class="col-12" ">
+			<div class="col-12" style="margin-top: 2%">
 				<h3 >회원 가입</h3>
 				<hr>
 			</div>
@@ -105,7 +105,7 @@ module.exports.register = function () {
 								</div>
 							</td>
 						</tr>
-						<!--<tr class="checkbox_wrap mar27">							
+					<!--	<tr class="checkbox_wrap ">							
 								<input type="checkbox" id="marketing" name="marketing" class="agree_chk">
 								<label for="marketing">&nbsp;&nbsp;[선택]마케팅 목적 개인정보 수집 및 이용에 대한 동의</label>
 									<ul><li>고객님께서는 위의 개인정보 및 회원정보 수정 등을 통해 추가로 수집하는 개인정보에<br/>
@@ -115,7 +115,7 @@ module.exports.register = function () {
 									</ul>								
 						</tr> -->
 						<tr>
-							<td colspan="3" style="text-align: center; padding-right: 30%; " >
+							<td colspan="3" style="text-align: center; padding-right: 30%; padding-bottom: 3%" >
 								<input class="btn btn-info" type="submit" value="가입신청" style="margin-right: 5px;" >
 								<input class="btn btn-secondary" type="reset" value="취소" style="margin-right: 5px;">
 								<input class="btn btn-secondary" type="submit" value="수정하기" >

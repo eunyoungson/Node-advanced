@@ -44,7 +44,7 @@ module.exports.view = function(navBar, data) {
                 
                 <tr>
                     <td colspan="2" style="text-align: center; padding-top: 20px;"">
-                        <button class="btn btn-primary" onclick="location.href='/bbs/list/1'">확인</button>
+                        <button class="btn btn-primary" onclick="location.href='/bbs/list'">확인</button>
                     </td>
                 </tr>
             </table>

@@ -4,22 +4,20 @@ module.exports.update = function(navBar, data) {
 	return `
         ${template.header()}
         ${navBar}
-<div class="container" style="margin-top: 90px;">  
-    <div class="row">
-    <div class="col-10" >
-		<h3>회원 가입</h3>
+
+    <div class="col-10"  style="margin-top: 10px;">
+		<h3>회원 정보 수정</h3>
 		<hr>
-	</div>
-	<div class="col-2"></div>
-	<div class="col-7">
-        <form action="/user/register" method="post">
+	
+	
+        <form action="/user/update" method="post">
             <table class="table table-borderless">
                 <tr>
                     <td  colspan="3"  style="text-align: center; padding-right: 30%;"><label for="label"  >&nbsp; &nbsp;소유자 정보 &nbsp; &nbsp;  </label></td>
                 </tr>
                 <tr>
                     <td><label for="uid">사용자 ID</label></td>
-                    <td><input type="text" name="uid" id="uid" >${data.uid}</td>
+                    <td><input type="text" name="uid" id="uid"  value="${data.uid}"></td>
                 </tr>
                 <tr>
                     <td><label for="uname">소유자 이름</label></td>
@@ -50,7 +48,7 @@ module.exports.update = function(navBar, data) {
                 </tr>
                 <tr>
                     <td><label for="speicies">강아지 종류</label></td>
-                    <td><input type="text" name="speicies" id="speicies" value=" ${data.speicies}"></td>
+                    <td><input type="text" name="speicies" id="speicies" value=" ${data.speicies} "></td>
                 </tr>
                 <tr>
                     <td><label for="birthday">강아지 생년월일</label></td>
@@ -76,19 +74,17 @@ module.exports.update = function(navBar, data) {
                             </label>
                         </div>
                     </td>
-                </tr>
-            
+                </tr>      
                 <tr>
                     <td colspan="3" style="text-align: center; padding-right: 30%; " >
-                        <input class="btn btn-secondary" type="submit" value="수정하기" >
+                        <input class="btn btn-info" type="submit" value="수정하기" >
                         <input class="btn btn-secondary" type="reset" value="취소" style="margin-right: 5px;">                 
                     </td>
                 </tr>
             </table>
         </form>
-	</div>
-	<div class="col-1"></div>
-    </div>
+	
+   
 </div>
 	    
 

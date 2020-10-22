@@ -43,12 +43,15 @@ module.exports = {
     </ul>
   
     
-    <span class="navbar-text " style="margin-right: 30px ; margin-left: 20%"  >   
+    <span class="navbar-text " style="margin-right: 30px ; margin-left: 18%"  >   
       ${uname}님 반갑습니다.
     </span> 
     <ul class="nav mr-auto">
       <li class="nav-item">
-          <a class="nav-link" href="/logout">로그아웃</a>
+        <a class="nav-link" href="/user/dispatch"><i class="fas fa-user">사용자</i></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/logout"><<i class="fas fa-sign-out-alt">로그아웃</i></a>
       </li>
     </ul>  
   </nav>

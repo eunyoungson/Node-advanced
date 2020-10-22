@@ -157,11 +157,27 @@ deleteBbs: function(bid,callback) {
     //여기부터는 동일
     getUserInfo:    function(uid, callback) {
         let conn = this.getConnection();
-        let sql = `select uid,pwd,uname,tel,email,puppyName,species,birthday,gender from users where uid like ?;`;
+        let sql = `select uid,pwd,uname,tel,email,DATE_FORMAT(regDate, '%y-%m-%d') AS regDate,
+                    puppyName,species,DATE_FORMAT(birthday, '%y-%m-%d') AS birthday,gender from users where uid like ?;`;
         conn.query(sql, uid, (error, results, fields) => {
             if (error)
                 console.log(error);
             callback(results[0]);   // 주의할 것
+        });
+        conn.end();
+    },  
+    getUserList:      function( callback) {
+        let conn = this.getConnection();
+        let sql = `SELECT uid, uname, tel, email,
+                    DATE_FORMAT(regDate, '%y-%m-%d') AS regDate,puppyName,species,DATE_FORMAT(birthday, '%y-%m-%d') AS birthday,gender
+                    FROM users
+                    WHERE isDeleted=0
+                    ORDER BY uname
+                    LIMIT 10;`;
+        conn.query(sql, (error, results, fields) => {
+            if (error)
+                console.log(error);
+            callback(results);
         });
         conn.end();
     },
@@ -177,7 +193,7 @@ deleteBbs: function(bid,callback) {
     },
     updateUser:     function(params, callback) {
         let conn = this.getConnection();
-        let sql = `update users set pwd=? where uid like ?;`;
+        let sql = `update users set pwd=?,uname=?, tel=?, email=?,puppyName=?,species=?,birthday=?,gender=? where uid like ?;`;
         conn.query(sql, params, (error, fields) => {
             if (error)
                 console.log(error);
