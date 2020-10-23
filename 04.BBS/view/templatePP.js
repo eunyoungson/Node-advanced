@@ -38,7 +38,7 @@ module.exports = {
           <a class="nav-link" href="http://localhost:3000/bbs/list">Board</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="/contact">Contact</a>
+          <a class="nav-link"  href="http://localhost:3000/contact">Contact</a>
         </li>
     </ul>
   
@@ -56,46 +56,11 @@ module.exports = {
     </ul>  
   </nav>
   <div>
-    <img src="/img/닥스.jpg" alt="닥스훈트" id=" style="width: 95%; ">
+    <img src="/img/닥스.jpg" alt="닥스훈트" id=" style="width: 100%; ">
   </div>
 
 
-  <!--본문-->
-  <div class="container" style="margin-top: 30px;">
-    <div class="row">
-      <div class="col-2">
-          <nav class="navbar bg-light">
-            <ul class="navbar-nav">           
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">About Dog</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="https://ko.wikipedia.org/wiki/강아지">Development </a>
-                  <a class="dropdown-item" href="https://tbever.com/강아지-종류-대표적인-품종-정리/">종류 / 성격</a>  
-                  <a class="dropdown-item" href="https://mydog.samsung.com/kor/petculture/socialTraining.do">Socialization</a>   
-                </div>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Store</a>
-                  <div class="dropdown-menu">
-                      <a class="dropdown-item" href="5.2020.html">사료/음식</a>
-                      <a class="dropdown-item" href="5.2020.html">강아지 용품</a>
-                      <a class="dropdown-item" href="5.2020.html">강아지 건강식품</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="5.2020.html">장바구니</a>
-                  </div>
-              </li>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="http://localhost:3000/bbs/list">Board</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="http://localhost:3000/user/dispatch">My Page</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./contact.html">Contact us</a>
-              </li>
-            </ul>
-          </nav>
-      </div>
+ 
         `;
     },
     footer:     function() {

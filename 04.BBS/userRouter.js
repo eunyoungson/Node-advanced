@@ -3,6 +3,7 @@ const ut = require('./util');
 const dm = require('./db/db-module');
 const alert = require('./view/alertMsg');
 const tplt = require('./view/templateP');
+const tplt2 = require('./view/templatePP');
 
 const uRouter = express.Router();
 uRouter.get('/register', (req, res) => {
@@ -22,14 +23,15 @@ uRouter.post('/register', (req, res) => {
     let puppyName = req.body.puppyName;
     let species = req.body.species;
     let birthday = req.body.birthday;
-    let gender = req.body.gender;
-   
+    let gender = req.body.optradio;
+    console.log(gender);
     if (pwd !==pwd2) {
         let html = alert.alertMsg('패스워드가 서로 다릅니다.');
          res.send(html);    
     } else {
         let pwdHash = ut.generateHash(pwd);
         let params = [uid, pwdHash, uname, tel, email,puppyName,species,birthday,gender];
+        console.log(params);
         dm.registerUser(params, () => {
             res.redirect('/login');
         });
@@ -55,8 +57,8 @@ uRouter.get('/list', ut.isLoggedIn, (req, res) => {
             let totalPage = Math.ceil(result.count / 10); */
             dm.getUserList( rows => {
                 let view = require('./view/userList');
-                let navBar = tplt.navBar(req.session.uname);
-                let html = view.list(navBar, rows);
+                let navBar = tplt2.navBar(req.session.uname);
+                let html = view.list( navBar,rows);
                 res.send(html);
             
         });
@@ -71,7 +73,7 @@ uRouter.get('/uid/:uid', ut.isLoggedIn, (req, res) => {
     } else {
         dm.getUserInfo(uid, result => {
             let view = require('./view/userView');
-            let navBar = template.navBar(req.session.uname); //tplt이거 확인하기!! template 과 어느게 맞는지
+            let navBar = tplt.navBar(req.session.uname); //tplt이거 확인하기!! 이게 맞음. 위에 const랑 연계해서 보기
             let html = view.view(navBar, result);
             res.send(html);
         });
@@ -94,7 +96,7 @@ uRouter.get('/update/:uid', ut.isLoggedIn, (req, res) => {
 
 uRouter.post('/update', ut.isLoggedIn, (req, res) => {
     let uid = req.body.uid;
-    let pwdHash = req.body.pwdHash;
+    let pwdHash = req.body.pwdHash; //새로운 비밀번호로 업뎃할 경우 대비하여,'유저업뎃'에서 히든으로 잡아준.
     let pwd = req.body.pwd;
     let pwd2 = req.body.pwd2;
     let uname = req.body.uname;
@@ -103,14 +105,15 @@ uRouter.post('/update', ut.isLoggedIn, (req, res) => {
     let puppyName = req.body.puppyName;
     let species = req.body.species;
     let birthday = req.body.birthday;
-    let gender = req.body.gender;
+    let gender = req.body.optradio;
     if (pwd && pwd !== pwd2) {
         let html = alert.alertMsg('패스워드가 다릅니다.', `/user/update/${uid}`);
         res.send(html);
     } else {
         if (pwd)
             pwdHash = ut.generateHash(pwd);
-        let params = [pwdHash, uname, tel, email,puppyName,species,birthday,gender, uid];
+        let params = [pwdHash, uname, tel, email,puppyName,species,birthday,gender,uid];
+        console.log(params);
         dm.updateUser(params, () => {
             res.redirect(`/user/uid/${uid}`);
         });

@@ -8,7 +8,7 @@ module.exports.view = function(navBar, data) {
         <div class="col-10">
             <h3>회원정보 상세조회</h3>
                 
-            <table class="table table-condensed" style="margin: 60px;">
+            <table  class="table table-condensed" style="margin: 60px;">
                 <tr>
                     <td>사용자 ID</td>
                     <td>${data.uid}</td>

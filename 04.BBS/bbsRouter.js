@@ -3,8 +3,8 @@ const ut = require('./util');
 const dm = require('./db/db-module');
 const alert = require('./view/alertMsg');
 const tplt = require('./view/templateP');
-
 const bRouter = express.Router();
+
 bRouter.get('/list', (req, res) => {
     dm.getBbsLists (data => {
         let navbar = tplt.navBar(req.session.uname);

@@ -59,7 +59,7 @@ module.exports.register = function () {
 						</tr>
 						<tr>
 							<td><label for="email">이메일</label></td>
-							<td><input type="text" name="email" id="tel" placeholder="email"></td>
+							<td><input type="text" name="email" id="email" placeholder="email"></td>
 						</tr>
 						<tr>
 							<td><label for="pwd">패스워드</label></td>
@@ -74,7 +74,7 @@ module.exports.register = function () {
 						</tr>
 						<tr>
 							<td><label for="puppyName">강아지 이름</label></td>
-							<td><input type="text" name="PuppyName" id="puppyName" placeholder=" your puppy's name"></td>
+							<td><input type="text" name="puppyName" id="puppyName" placeholder=" your puppy's name"></td>
 						</tr>
 						<tr>
 							<td><label for="species">강아지 종류</label></td>
@@ -87,7 +87,7 @@ module.exports.register = function () {
 						
 						<tr>
 							<td><label for="gender">강아지 성별</label></td>
-							<td class="puppyinfo">
+							<td  name="gender" id="gender">
 								<div class="form-check-inline">
 									<label class="form-check-label" for="radio1">
 									<input type="radio" class="form-check-input" id="radio1" name="optradio" value="female" checked>여자
@@ -112,7 +112,7 @@ module.exports.register = function () {
 										대해 동의하지 않거나 개인정보를 기재하지 않음으로써 거부하실 수 있습니다.<br/>
 										다만 이때 회원 대상 서비스가 제한될 수 있습니다.
 										</li>	
-									</ul>								
+									</ul>	class="puppyinfo"							
 						</tr> -->
 						<tr>
 							<td colspan="3" style="text-align: center; padding-right: 30%; padding-bottom: 3%" >

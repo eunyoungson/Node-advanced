@@ -158,7 +158,7 @@ deleteBbs: function(bid,callback) {
     getUserInfo:    function(uid, callback) {
         let conn = this.getConnection();
         let sql = `select uid,pwd,uname,tel,email,DATE_FORMAT(regDate, '%y-%m-%d') AS regDate,
-                    puppyName,species,DATE_FORMAT(birthday, '%y-%m-%d') AS birthday,gender from users where uid like ?;`;
+                    puppyName,species,DATE_FORMAT(birthday, '%Y-%m-%d') AS birthday,gender from users where uid like ?;`;
         conn.query(sql, uid, (error, results, fields) => {
             if (error)
                 console.log(error);
@@ -169,7 +169,7 @@ deleteBbs: function(bid,callback) {
     getUserList:      function( callback) {
         let conn = this.getConnection();
         let sql = `SELECT uid, uname, tel, email,
-                    DATE_FORMAT(regDate, '%y-%m-%d') AS regDate,puppyName,species,DATE_FORMAT(birthday, '%y-%m-%d') AS birthday,gender
+                    DATE_FORMAT(regDate, '%y-%m-%d') AS regDate,puppyName,species,DATE_FORMAT(birthday, '%Y-%m-%d') AS birthday,gender
                     FROM users
                     WHERE isDeleted=0
                     ORDER BY uname
@@ -190,6 +190,7 @@ deleteBbs: function(bid,callback) {
             callback();
         });
         conn.end();
+       
     },
     updateUser:     function(params, callback) {
         let conn = this.getConnection();
@@ -199,6 +200,20 @@ deleteBbs: function(bid,callback) {
                 console.log(error);
             callback();
         });
+        console.log(params);
+        conn.end();
+        
+    },
+    //conRouter
+    insertConinfo:  function(params, callback) {
+        let conn = this.getConnection();
+        let sql = `insert into reply(cname, cemail, cmessage) values(?,?,?);`;
+        conn.query(sql, params, (error, fields) => {
+            if (error)
+                console.log(error);
+            callback();
+        });
+        console.log(params);
         conn.end();
     }
 }

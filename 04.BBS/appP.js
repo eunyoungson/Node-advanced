@@ -9,6 +9,7 @@ const dm = require('./db/db-module');
 const bRouter = require('./bbsRouter');
 const ut = require('./util');
 const am = require('./view/alertMsg');
+const cRouter = require('./conRouter');
 
 const app = express();
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
@@ -26,10 +27,35 @@ app.use(session({
 }));
 app.use('/user', uRouter);
 app.use('/bbs', bRouter);
+app.use('/con', cRouter);
 
 app.get('/', ut.isLoggedIn, (req, res) => {
     res.redirect('/bbs/list');
 });
+  app.get('/contact', (req, res) => {
+    fs.readFile('./view/contact.html', 'utf8', (error, html) => {
+        res.send(html);
+    });
+}); 
+/*app.post('/contact',(req,res) =>{
+    let cname = req.body.cname;
+    let cemail = req.body.cemail;
+    let cmessage = req.body.cmessage ;
+    let params = [cname,cemail,cmessage];
+    dm.insertConinfo(params,()=>{
+        console.log(params);
+        res.redirect('/bbs/list')
+    });
+}); */
+
+
+/* app.get('/bbslist', (req, res) => { 로그인 안해도 글 볼수있도록 해볼까?
+    fs.readFile('/bbs/list', 'utf8', (error, html) => {
+        res.send(html);
+    });
+}); 
+ */
+
 app.get('/login', (req, res) => {
     fs.readFile('./view/login_P.html', 'utf8', (error, html) => {
         res.send(html);
