@@ -4,14 +4,17 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+
 const uRouter = require('./userRouter');
-const dm = require('./db/db-module');
 const bRouter = require('./bbsRouter');
+//const cRouter = require('./conRouter');
+
 const ut = require('./util');
 const am = require('./view/alertMsg');
-const cRouter = require('./conRouter');
-
+const dm = require('./db/db-module');
 const app = express();
+
+
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'));
 app.use('/popper', express.static(__dirname + '/node_modules/@popperjs/core/dist/umd'));
@@ -27,27 +30,36 @@ app.use(session({
 }));
 app.use('/user', uRouter);
 app.use('/bbs', bRouter);
-app.use('/con', cRouter);
+//app.use('/con', cRouter);
 
 app.get('/', ut.isLoggedIn, (req, res) => {
     res.redirect('/bbs/list');
 });
-  app.get('/contact', (req, res) => {
-    fs.readFile('./view/contact.html', 'utf8', (error, html) => {
+
+app.get('/contact', (req, res) => {
+    fs.readFile('./view/contact.html', 'utf8', (error, html) => {   
         res.send(html);
     });
 }); 
-/*app.post('/contact',(req,res) =>{
+ app.post('/contact',(req,res) =>{
     let cname = req.body.cname;
     let cemail = req.body.cemail;
     let cmessage = req.body.cmessage ;
     let params = [cname,cemail,cmessage];
-    dm.insertConinfo(params,()=>{
-        console.log(params);
-        res.redirect('/bbs/list')
-    });
-}); */
+    let uid = req.params.uid;       
+       if (req.session.uid === 'admin') {
 
+        dm.insertConinfo(params,()=>{
+            console.log(params);
+            let view = require('./view/unuserList');            
+            let html = view.list( navBar,params);
+            res.send(html);
+        });
+       } else {
+        console.log(params);
+        res.redirect('/bbs/list');
+       }   
+});  
 
 /* app.get('/bbslist', (req, res) => { 로그인 안해도 글 볼수있도록 해볼까?
     fs.readFile('/bbs/list', 'utf8', (error, html) => {

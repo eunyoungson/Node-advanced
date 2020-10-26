@@ -27,8 +27,8 @@ module.exports.list = function ( navBar,data) {
       <div class="col-1"></div>
       <div class="col-10">
         <div class="container-fluid">
-        <h6>회원 목록</h6>
-    
+        <h3>회원 목록</h3>
+        <button type="submit" class="btn btn-info" style="margin-left: 85%; margin-top: 5px; margin-bottom: 20px;" onclick="location.href='/user/unuserList'">비회원 문의목록</button>
         <table class="table table-hover">        
           <tr class="flex">
                 <th style="text-align:center">ID</th>
@@ -44,6 +44,7 @@ module.exports.list = function ( navBar,data) {
             </tr>
             ${trs}
           </table>
+
         <ul class="pagination justify-content-center">
           <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
           <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>

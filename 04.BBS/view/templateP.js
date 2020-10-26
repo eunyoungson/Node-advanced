@@ -21,7 +21,7 @@ module.exports = {
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <!-- Brand/logo -->
     
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/login">
       <img src="/img/요미로고3.png" alt="logo" style="width:40px; margin-left: 50px;">
     </a>
     
@@ -35,7 +35,7 @@ module.exports = {
           <a class="nav-link" href="https://ko.wikipedia.org/wiki/강아지">Store</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost:3000/bbs/list">Board</a>
+          <a class="nav-link" href="/bbs/list">Board</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"  href="/contact">Contact</a>
@@ -56,7 +56,7 @@ module.exports = {
     </ul>  
   </nav>
   <div>
-    <img src="/img/닥스.jpg" alt="닥스훈트" id=" style="width: 95%; ">
+    <img src="/img/닥스.jpg" alt="닥스훈트" id=" style="width: 100%; ">
   </div>
 
 

@@ -13,6 +13,9 @@ module.exports.view = function(navBar, data) {
     
             <h3 style="margin-bottom: 20px; margin-top: 20px;">Contact</h3>
             <h6>Please, contact me if you have any question about me. I will answer you as soon as possible. Thank you! </h6> 
+            <h6>문의사항을 남겨주시면, 빠른 시일내에 답변 드리겠습니다. 감사합니다~! </h6>
+            <br>
+            
             <form action="/contact"  method="POST">
                 
                 <div class="form-group">

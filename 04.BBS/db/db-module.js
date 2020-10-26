@@ -207,7 +207,7 @@ deleteBbs: function(bid,callback) {
     //conRouter
     insertConinfo:  function(params, callback) {
         let conn = this.getConnection();
-        let sql = `insert into reply(cname, cemail, cmessage) values(?,?,?);`;
+        let sql = `insert into coninfo(cname, cemail, cmessage) values(?,?,?);`;
         conn.query(sql, params, (error, fields) => {
             if (error)
                 console.log(error);

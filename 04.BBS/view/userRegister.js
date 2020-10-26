@@ -46,11 +46,11 @@ module.exports.register = function () {
 							<td  colspan="3"  style="text-align: center; padding-right: 30%;"><label for="label"  >&nbsp; &nbsp;소유자 정보 &nbsp; &nbsp;  </label></td>
 						</tr>
 						<tr>
-							<td><label for="uid">사용자 ID</label></td>
+							<td><label for="uid">사용자 ID<sup style="color:red">*</sup></label></td>
 							<td><input type="text" name="uid" id="uid" placeholder=" ID"></td>
 						</tr>
 						<tr>
-							<td><label for="uname">소유자 이름</label></td>
+							<td><label for="uname">소유자 이름<sup style="color:red">*</sup></label></td>
 							<td><input type="text" name="uname" id="uname" placeholder=" uname"></td>
 						</tr>
 						<tr>
@@ -62,11 +62,11 @@ module.exports.register = function () {
 							<td><input type="text" name="email" id="email" placeholder="email"></td>
 						</tr>
 						<tr>
-							<td><label for="pwd">패스워드</label></td>
+							<td><label for="pwd">패스워드<sup style="color:red">*</sup></label></td>
 							<td><input type="password" name="pwd" id="pwd" placeholder=" password"></td>
 						</tr>
 						<tr>
-							<td><label for="pwd2">패스워드 확인</label></td>
+							<td><label for="pwd2">패스워드 확인<sup style="color:red">*</sup></label></td>
 							<td><input type="password" name="pwd2" id="pwd2" placeholder=" password"></td>
 						</tr>
 						<tr>

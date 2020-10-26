@@ -5,11 +5,11 @@ module.exports.list = function ( navBar,data) { //, pageNo, startPage, endPage, 
     let trs = '';
     for (let row of data) {
         //let displayTime = ut.getDisplayTime(row.modTime);
-         let title = (row.replyCount == 0) ? row.title :
+        let title = (row.replyCount == 0) ? row.title :
             `${row.title}<span class="text-danger">[${row.replyCount}]</span>`; 
         trs += `<tr class="flex"> 
                     <td style="text-align: center;">${row.bid}</td>
-                    <td style="text-align: center;"><a href="/bbs/bid/${row.bid}"><strong>${row.title}</strong></a></td>
+                    <td style="text-align: center;"><a href="/bbs/bid/${row.bid}"><strong>${title}</strong></a></td>
                     <td style="text-align: center;">${row.uname}</td>
                     <td style="text-align: center;">${row.displayTime}</td>
                     <td style="text-align: center;">${row.viewCount}</td>

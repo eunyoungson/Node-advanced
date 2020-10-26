@@ -140,4 +140,24 @@ uRouter.get('/deleteConfirm/:uid', ut.isLoggedIn, (req, res) => {
     });
 });
 
+uRouter.get('/unuserList', ut.isLoggedIn, (req, res) => {
+    if (req.session.uid !== 'admin') {
+        let html = alert.alertMsg('조회 권한이 없습니다.', `/bbs/list`);
+        res.send(html);
+    } else {
+        let cname = req.body.cname;
+        let cemail = req.body.cemail;
+        let cmessage = req.body.cmessage ;
+        let params = [cname,cemail,cmessage];
+        let uid = req.params.uid;  
+            dm.getUserList( rows => {
+                let view = require('./view/unuserList');
+                let navBar = tplt2.navBar(req.session.uname);
+                let html = view.list( navBar,rows);
+                res.send(html);
+            
+        });
+    }
+});
+
 module.exports = uRouter;

@@ -1,21 +1,21 @@
-const express = require('express');
+/* const express = require('express');
 const ut = require('./util');
 const dm = require('./db/db-module');
 const alert = require('./view/alertMsg');
-const tplt = require('./view/templateP');
+const tplt = require('./view/templatePP');
 const cRouter = express.Router();
 
 
- cRouter.get('/contact', (req, res) => {
-    dm.getBbsLists (data => {
+  cRouter.get('/insert', (req, res) => {
+  
         let navbar = tplt.navBar(req.session.uname);
         const view = require('./view/contact');
-        let html = view.list(navbar,data);
+        let html = view.contact(navbar,data);
         res.send(html); 
 
-    });
-}); 
-cRouter.post('/contact',(req,res) =>{
+    });  
+
+cRouter.post('/insert',(req,res) =>{
     let cname = req.body.cname;
     let cemail = req.body.cemail;
     let cmessage = req.body.cmessage ;
@@ -24,4 +24,4 @@ cRouter.post('/contact',(req,res) =>{
         console.log(params);
         res.redirect('/bbs/list')
     });
-}); 
+});  */
