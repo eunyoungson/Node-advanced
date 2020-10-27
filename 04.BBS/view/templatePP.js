@@ -35,10 +35,10 @@ module.exports = {
           <a class="nav-link" href="https://ko.wikipedia.org/wiki/강아지">Store</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost:3000/bbs/list">Board</a>
+          <a class="nav-link" href="/bbs/list">Board</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="http://localhost:3000/contact">Contact</a>
+          <a class="nav-link"  href="/contact">Contact</a>
         </li>
     </ul>
   

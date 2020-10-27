@@ -85,13 +85,13 @@ module.exports = {
               </li>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="http://localhost:3000/bbs/list">Board</a>
+                <a class="nav-link" href="/bbs/list">Board</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="http://localhost:3000/user/dispatch">My Page</a>
+                <a class="nav-link" href="/user/dispatch">My Page</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./contact.html">Contact us</a>
+                <a class="nav-link" href="/contact">Contact us</a>
               </li>
             </ul>
           </nav>
